@@ -19,22 +19,20 @@
   <modelVersion>4.0.0</modelVersion>
   <parent>
       <groupId>org.apache.log4j</groupId>
-      <artifactId>log4j-parent</artifactId>
+      <artifactId>log4j-modules</artifactId>
       <version>1.4.0-SNAPSHOT</version>
   </parent>
   <groupId>org.apache.log4j</groupId>
-  <artifactId>log4j-modules</artifactId>
-  <name>Apache Log4j-Modules POM</name>
-  <description>Apache Log4j Modules Container</description>
-  <packaging>pom</packaging>
-  
-  <modules>
-    <module>chainsaw</module>
-    <!-- build not implemented <module>contribs</module> Compile errors -->
-    <module>lf5</module>
-    <module>net</module>
-    <!-- build not implemented <module>nt</module> -->
-    <module>performance</module>
-  </modules>
-  
+  <artifactId>log4j-lf5</artifactId>
+  <name>Apache Log4j-LF5</name>
+  <packaging>jar</packaging>
+
+  <dependencies>
+    <dependency>
+      <groupId>org.apache.log4j</groupId>
+      <artifactId>log4j-core</artifactId>
+      <version>${project.version}</version>
+    </dependency>
+  </dependencies>
+
 </project>
