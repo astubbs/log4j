@@ -54,6 +54,13 @@
       <version>${project.version}</version>
     </dependency>
     <dependency>
+       <groupId>org.apache.log4j</groupId>
+       <artifactId>log4j-core</artifactId>
+       <version>${project.version}</version>
+       <type>test-jar</type>
+       <scope>test</scope>
+    </dependency>
+    <dependency>
       <groupId>javax.mail</groupId>
       <artifactId>mail</artifactId>
       <version>1.4.1</version>

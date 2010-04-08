@@ -19,6 +19,8 @@ package org.apache.log4j;
 
 import org.apache.log4j.util.Filter;
 
+import org.apache.log4j.util.Filter;
+
 /**
  * This class switches MDC values into the order
  * (unreasonably) expected by the witness files.
