@@ -258,7 +258,7 @@ public class JListView extends JList {
       if(value instanceof LoggingEvent) {
 	LoggingEvent event = (LoggingEvent) value;
 	String str = layout.format(event);
-	String t = event.getThrowableInformation();
+	String t = event.getThrowableInformation().toString();
 
 	if(t != null) {
 	  setText(str + Layout.LINE_SEP + t);

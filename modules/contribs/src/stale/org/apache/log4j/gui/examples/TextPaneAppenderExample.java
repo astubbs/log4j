@@ -17,14 +17,14 @@
 
 package org.apache.log4j.gui.examples;
 
-import java.awt.BorderLayout;
 import java.awt.event.*;
 import javax.swing.*;
 import org.apache.log4j.*;
 import org.apache.log4j.gui.*;
 
-
-
+/**
+ * @author Sven Reimers
+ */
 public class TextPaneAppenderExample implements ActionListener {
 
     JFrame mainframe;

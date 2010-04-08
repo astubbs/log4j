@@ -103,7 +103,7 @@ public class JTableAppender extends JTable {
     container.add(button);
     
 
-    button.addActionListener(new JTableAddAction(appender));
+    button.addActionListener(new JTableAppenderJTableAddAction(appender));
 
     frame.setVisible(true);
     frame.setSize(new Dimension(700,700));
@@ -150,7 +150,7 @@ public class JTableAppender extends JTable {
       if(value instanceof LoggingEvent) {
 	LoggingEvent event = (LoggingEvent) value;
 	String str = layout.format(event);
-	String t = event.getThrowableInformation();
+	String t = event.getThrowableInformation().toString();
 	
 	if(t != null) {
 	  System.out.println("eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee");
@@ -210,7 +210,7 @@ class JTableAppenderModel extends AbstractTableModel {
 }
 
 
-class JTableAddAction implements ActionListener {
+class JTableAppenderJTableAddAction implements ActionListener {
     
   int j;
   JTableAppender appender;
@@ -218,7 +218,7 @@ class JTableAddAction implements ActionListener {
   Category cat = Category.getInstance("x");
   
   public
-  JTableAddAction(JTableAppender appender) {
+  JTableAppenderJTableAddAction(JTableAppender appender) {
     this.appender = appender;
     j = 0;
   }

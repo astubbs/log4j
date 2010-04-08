@@ -23,6 +23,11 @@
  */
 
 package org.apache.log4j.net;
+
+import java.awt.Component;
+import java.io.Writer;
+import java.net.URL;
+
 /**
  * This class implements a RequestHandler for the path "/userdialog/" in the PluggableHTTPServer.
  * A simple input form is presented in the browser where you can enter a message. This message will be sent

@@ -1,3 +1,4 @@
+package org.apache.log4j.contribs.ThomasFenner;
 /*
  * Licensed to the Apache Software Foundation (ASF) under one or more
  * contributor license agreements.  See the NOTICE file distributed with
@@ -127,13 +128,12 @@ import org.apache.log4j.net.JDBCConnectionHandler;
 import org.apache.log4j.net.JDBCIDHandler;
 
 import java.sql.*;
-import java.lang.*;
 import java.util.*;
 
-public class Log4JTest
+public class JDBCAppenderWithConfigFileLog4JTest
 {
 	// Create a category instance for this class
-   static Category cat = Category.getInstance(Log4JTest.class.getName());
+   static Category cat = Category.getInstance(JDBCAppenderWithConfigFileLog4JTest.class.getName());
 
    public static void main(String[] args)
    {
@@ -232,7 +232,7 @@ public class Log4JTest
 */
 
 // Implement a sample JDBCConnectionHandler
-class MyConnectionHandler implements JDBCConnectionHandler
+class JDBCAppenderWithConfigFileLog4JTestConnectionHandler implements JDBCConnectionHandler
 {
 	Connection con = null;
    //Default connection
@@ -261,7 +261,7 @@ class MyConnectionHandler implements JDBCConnectionHandler
 
 
 // Implement a sample JDBCIDHandler
-class MyIDHandler implements JDBCIDHandler
+class JDBCAppenderWithConfigFileIDHandler implements JDBCIDHandler
 {
 	private static long id = 0;
 

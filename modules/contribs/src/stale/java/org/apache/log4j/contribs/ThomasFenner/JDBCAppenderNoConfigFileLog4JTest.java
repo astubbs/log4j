@@ -1,3 +1,4 @@
+package org.apache.log4j.contribs.ThomasFenner;
 /*
  * Licensed to the Apache Software Foundation (ASF) under one or more
  * contributor license agreements.  See the NOTICE file distributed with
@@ -19,16 +20,17 @@
 
 import org.apache.log4j.*;
 import org.apache.log4j.net.JDBCAppender;
+import org.apache.log4j.net.JDBCConnectionHandler;
+import org.apache.log4j.net.JDBCIDHandler;
 import org.apache.log4j.net.LogType;
 
 import java.sql.*;
-import java.lang.*;
 import java.util.*;
 
-public class Log4JTest
+public class JDBCAppenderNoConfigFileLog4JTest
 {
 	// Create a category instance for this class
-	static Category cat = Category.getInstance(Log4JTest.class.getName());
+	static Category cat = Category.getInstance(JDBCAppenderNoConfigFileLog4JTest.class.getName());
 
 	public static void main(String[] args)
 	{

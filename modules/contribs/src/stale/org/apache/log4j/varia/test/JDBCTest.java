@@ -16,8 +16,8 @@
  */
 package org.apache.log4j.varia.test;
 
-import org.apache.log4j.varia.JDBCAppender;
 import org.apache.log4j.*;
+import org.apache.log4j.net.JDBCAppender;
 
 /**
  * @author Kevin Sceppe
