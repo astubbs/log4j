@@ -39,6 +39,11 @@ import org.apache.log4j.varia.LevelRangeFilter;
  *
  */
 public class PropertyConfiguratorTest extends TestCase {
+
+    static final String FILE_PREFIX = "target/test-classes";
+    static final String INPUT_DIR = FILE_PREFIX + "/input";
+    static final String WITNESS_DIR = FILE_PREFIX + "/witness";
+
     public PropertyConfiguratorTest(final String testName) {
         super(testName);
     }
@@ -278,7 +283,7 @@ public class PropertyConfiguratorTest extends TestCase {
      *
      */
     public void testNested() {
-        PropertyConfigurator.configure("input/filter1.properties");
+        PropertyConfigurator.configure(INPUT_DIR + "/filter1.properties");
         RollingFileAppender rfa = (RollingFileAppender)
                 Logger.getLogger("org.apache.log4j.PropertyConfiguratorTest")
                    .getAppender("ROLLING");

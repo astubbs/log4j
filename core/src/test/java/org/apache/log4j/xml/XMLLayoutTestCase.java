@@ -37,6 +37,10 @@ import java.util.Hashtable;
 
 public class XMLLayoutTestCase extends TestCase {
 
+  static final String FILE_PREFIX = "target/test-classes";
+  static final String INPUT_DIR = FILE_PREFIX + "/input";
+  static final String WITNESS_DIR = FILE_PREFIX + "/witness";
+  
   static String TEMP = "output/temp";
   static String FILTERED = "output/filtered";
 
@@ -70,7 +74,7 @@ public class XMLLayoutTestCase extends TestCase {
         new JunitTestRunnerFilter(),
         new SunReflectFilter()
       });
-    assertTrue(Compare.compare(FILTERED, "witness/xmlLayout.1"));
+    assertTrue(Compare.compare(FILTERED, WITNESS_DIR + "/xmlLayout.1"));
   }
 
   public void locationInfo() throws Exception {
@@ -87,7 +91,7 @@ public class XMLLayoutTestCase extends TestCase {
         new JunitTestRunnerFilter(),
         new SunReflectFilter()
       });
-    assertTrue(Compare.compare(FILTERED, "witness/xmlLayout.2"));
+    assertTrue(Compare.compare(FILTERED, WITNESS_DIR + "/xmlLayout.2"));
   }
 
   public void testCDATA() throws Exception {
@@ -116,7 +120,7 @@ public class XMLLayoutTestCase extends TestCase {
     Transformer.transform(TEMP, FILTERED, new Filter[] {new LineNumberFilter(),
     						  new XMLTimestampFilter(),
     						  new XMLLineAttributeFilter()});
-    assertTrue(Compare.compare(FILTERED, "witness/xmlLayout.3"));
+    assertTrue(Compare.compare(FILTERED, WITNESS_DIR + "/xmlLayout.3"));
   }
 
   public void testNull() throws Exception {
@@ -139,7 +143,7 @@ public class XMLLayoutTestCase extends TestCase {
           new XMLTimestampFilter(),  
           new JunitTestRunnerFilter(),
           new SunReflectFilter()});
-    assertTrue(Compare.compare(FILTERED, "witness/xmlLayout.null"));
+    assertTrue(Compare.compare(FILTERED, WITNESS_DIR + "/xmlLayout.null"));
   }
 
     /**
@@ -165,7 +169,7 @@ public class XMLLayoutTestCase extends TestCase {
         new Filter[] { new LineNumberFilter(),
             new JunitTestRunnerFilter(),
             new XMLTimestampFilter()});
-      assertTrue(Compare.compare(FILTERED, "witness/xmlLayout.mdc.1"));
+      assertTrue(Compare.compare(FILTERED, WITNESS_DIR + "/xmlLayout.mdc.1"));
     }
 
     public void testMDCEscaped() throws Exception {
@@ -186,7 +190,7 @@ public class XMLLayoutTestCase extends TestCase {
         new Filter[] { new LineNumberFilter(),
             new JunitTestRunnerFilter(),
             new XMLTimestampFilter() });
-      assertTrue(Compare.compare(FILTERED, "witness/xmlLayout.mdc.2"));
+      assertTrue(Compare.compare(FILTERED, WITNESS_DIR + "/xmlLayout.mdc.2"));
     }
 
   

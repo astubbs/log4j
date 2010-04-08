@@ -46,7 +46,7 @@ public class LevelTest extends TestCase {
   public void testSerializeINFO() throws Exception {
     int[] skip = new int[] {  };
     SerializationTestHelper.assertSerializationEquals(
-      "witness/serialization/info.bin", Level.INFO, skip, Integer.MAX_VALUE);
+      "target/test-classes/witness/serialization/info.bin", Level.INFO, skip, Integer.MAX_VALUE);
   }
 
   /**
@@ -56,7 +56,7 @@ public class LevelTest extends TestCase {
   public void testDeserializeINFO() throws Exception {
     Object obj =
       SerializationTestHelper.deserializeStream(
-        "witness/serialization/info.bin");
+        "target/test-classes/witness/serialization/info.bin");
     assertTrue(obj instanceof Level);
     Level info = (Level) obj;
     assertEquals("INFO", info.toString());

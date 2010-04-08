@@ -34,6 +34,11 @@ import org.apache.log4j.Category;
  * @author Curt Arnold
  */
 public class LoggingEventTest extends TestCase {
+
+  static final String FILE_PREFIX = "target/test-classes";
+  static final String INPUT_DIR = FILE_PREFIX + "/input";
+  static final String WITNESS_DIR = FILE_PREFIX + "/witness";
+  
   /**
    * Create LoggingEventTest.
    *
@@ -57,7 +62,7 @@ public class LoggingEventTest extends TestCase {
 
     int[] skip = new int[] { 352, 353, 354, 355, 356 };
     SerializationTestHelper.assertSerializationEquals(
-      "witness/serialization/simple.bin", event, skip, 237);
+      WITNESS_DIR + "/serialization/simple.bin", event, skip, 237);
   }
 
   /**
@@ -76,7 +81,7 @@ public class LoggingEventTest extends TestCase {
 
     int[] skip = new int[] { 352, 353, 354, 355, 356 };
     SerializationTestHelper.assertSerializationEquals(
-      "witness/serialization/exception.bin", event, skip, 237);
+      WITNESS_DIR + "/serialization/exception.bin", event, skip, 237);
   }
 
   /**
@@ -95,7 +100,7 @@ public class LoggingEventTest extends TestCase {
 
     int[] skip = new int[] { 352, 353, 354, 355, 356 };
     SerializationTestHelper.assertSerializationEquals(
-      "witness/serialization/location.bin", event, skip, 237);
+      WITNESS_DIR + "/serialization/location.bin", event, skip, 237);
   }
 
   /**
@@ -114,7 +119,7 @@ public class LoggingEventTest extends TestCase {
 
     int[] skip = new int[] { 352, 353, 354, 355, 356 };
     SerializationTestHelper.assertSerializationEquals(
-      "witness/serialization/ndc.bin", event, skip, 237);
+      WITNESS_DIR + "/serialization/ndc.bin", event, skip, 237);
     }
 
   /**
@@ -133,7 +138,7 @@ public class LoggingEventTest extends TestCase {
 
     int[] skip = new int[] { 352, 353, 354, 355, 356 };
     SerializationTestHelper.assertSerializationEquals(
-      "witness/serialization/mdc.bin", event, skip, 237);
+      WITNESS_DIR + "/serialization/mdc.bin", event, skip, 237);
   }
 
   /**
@@ -144,7 +149,7 @@ public class LoggingEventTest extends TestCase {
   public void testDeserializationSimple() throws Exception {
     Object obj =
       SerializationTestHelper.deserializeStream(
-        "witness/serialization/simple.bin");
+        WITNESS_DIR + "/serialization/simple.bin");
     assertTrue(obj instanceof LoggingEvent);
 
     LoggingEvent event = (LoggingEvent) obj;
@@ -160,7 +165,7 @@ public class LoggingEventTest extends TestCase {
   public void testDeserializationWithException() throws Exception {
     Object obj =
       SerializationTestHelper.deserializeStream(
-        "witness/serialization/exception.bin");
+        WITNESS_DIR + "/serialization/exception.bin");
     assertTrue(obj instanceof LoggingEvent);
 
     LoggingEvent event = (LoggingEvent) obj;
@@ -176,7 +181,7 @@ public class LoggingEventTest extends TestCase {
   public void testDeserializationWithLocation() throws Exception {
     Object obj =
       SerializationTestHelper.deserializeStream(
-        "witness/serialization/location.bin");
+        WITNESS_DIR + "/serialization/location.bin");
     assertTrue(obj instanceof LoggingEvent);
 
     LoggingEvent event = (LoggingEvent) obj;

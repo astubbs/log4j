@@ -32,6 +32,10 @@ import org.apache.log4j.util.Transformer;
 
 public class PatternLayoutTestCase extends TestCase {
 
+  static final String FILE_PREFIX = "target/test-classes";
+  static final String INPUT_DIR = FILE_PREFIX + "/input";
+  static final String WITNESS_DIR = FILE_PREFIX + "/witness";
+  
   static String TEMP = "output/temp";
   static String FILTERED = "output/filtered";
 
@@ -80,7 +84,7 @@ public class PatternLayoutTestCase extends TestCase {
   }
 
   public void test1() throws Exception {
-    PropertyConfigurator.configure("input/patternLayout1.properties");
+    PropertyConfigurator.configure(INPUT_DIR + "/patternLayout1.properties");
     common();
     Transformer.transform(
       TEMP, FILTERED,
@@ -88,11 +92,11 @@ public class PatternLayoutTestCase extends TestCase {
         new LineNumberFilter(), new SunReflectFilter(),
         new JunitTestRunnerFilter()
       });
-    assertTrue(Compare.compare(FILTERED, "witness/patternLayout.1"));
+    assertTrue(Compare.compare(FILTERED, WITNESS_DIR + "/patternLayout.1"));
   }
 
   public void test2() throws Exception {
-    PropertyConfigurator.configure("input/patternLayout2.properties");
+    PropertyConfigurator.configure(INPUT_DIR + "/patternLayout2.properties");
     common();
     ControlFilter cf1 = new ControlFilter(new String[]{PAT1, EXCEPTION1, 
 						       EXCEPTION2, EXCEPTION3, EXCEPTION4, EXCEPTION5});
@@ -102,11 +106,11 @@ public class PatternLayoutTestCase extends TestCase {
         cf1, new LineNumberFilter(), new ISO8601Filter(),
         new SunReflectFilter(), new JunitTestRunnerFilter()
       });
-    assertTrue(Compare.compare(FILTERED, "witness/patternLayout.2"));
+    assertTrue(Compare.compare(FILTERED, WITNESS_DIR + "/patternLayout.2"));
   }
 
   public void test3() throws Exception {
-    PropertyConfigurator.configure("input/patternLayout3.properties");
+    PropertyConfigurator.configure(INPUT_DIR + "/patternLayout3.properties");
     common();
     ControlFilter cf1 = new ControlFilter(new String[]{PAT1, EXCEPTION1, 
 						       EXCEPTION2, EXCEPTION3, EXCEPTION4, EXCEPTION5});
@@ -116,13 +120,13 @@ public class PatternLayoutTestCase extends TestCase {
         cf1, new LineNumberFilter(), new ISO8601Filter(),
         new SunReflectFilter(), new JunitTestRunnerFilter()
       });
-    assertTrue(Compare.compare(FILTERED, "witness/patternLayout.3"));
+    assertTrue(Compare.compare(FILTERED, WITNESS_DIR + "/patternLayout.3"));
   }
 
   // Output format:
   // 06 avr. 2002 18:30:58,937 [main] DEBUG rnLayoutTestCase - Message 0  
   public void test4() throws Exception {
-    PropertyConfigurator.configure("input/patternLayout4.properties");
+    PropertyConfigurator.configure(INPUT_DIR + "/patternLayout4.properties");
     common();
     ControlFilter cf1 = new ControlFilter(new String[]{PAT2, EXCEPTION1, 
 						       EXCEPTION2, EXCEPTION3, EXCEPTION4, EXCEPTION5});
@@ -132,11 +136,11 @@ public class PatternLayoutTestCase extends TestCase {
         cf1, new LineNumberFilter(), new AbsoluteDateAndTimeFilter(),
         new SunReflectFilter(), new JunitTestRunnerFilter()
       });
-    assertTrue(Compare.compare(FILTERED, "witness/patternLayout.4"));
+    assertTrue(Compare.compare(FILTERED, WITNESS_DIR + "/patternLayout.4"));
   }
 
   public void test5() throws Exception {
-    PropertyConfigurator.configure("input/patternLayout5.properties");
+    PropertyConfigurator.configure(INPUT_DIR + "/patternLayout5.properties");
     common();
     ControlFilter cf1 = new ControlFilter(new String[]{PAT2, EXCEPTION1, 
 						       EXCEPTION2, EXCEPTION3, EXCEPTION4, EXCEPTION5});
@@ -146,12 +150,12 @@ public class PatternLayoutTestCase extends TestCase {
         cf1, new LineNumberFilter(), new AbsoluteDateAndTimeFilter(),
         new SunReflectFilter(), new JunitTestRunnerFilter()
       });
-    assertTrue(Compare.compare(FILTERED, "witness/patternLayout.5"));
+    assertTrue(Compare.compare(FILTERED, WITNESS_DIR + "/patternLayout.5"));
   }
 
   // 18:54:19,201 [main] DEBUG rnLayoutTestCase - Message 0
   public void test6() throws Exception {
-    PropertyConfigurator.configure("input/patternLayout6.properties");
+    PropertyConfigurator.configure(INPUT_DIR + "/patternLayout6.properties");
     common();
     ControlFilter cf1 = new ControlFilter(new String[]{PAT3, EXCEPTION1, 
 						       EXCEPTION2, EXCEPTION3, EXCEPTION4, EXCEPTION5});
@@ -161,12 +165,12 @@ public class PatternLayoutTestCase extends TestCase {
         cf1, new LineNumberFilter(), new AbsoluteTimeFilter(),
         new SunReflectFilter(), new JunitTestRunnerFilter()
       });
-    assertTrue(Compare.compare(FILTERED, "witness/patternLayout.6"));
+    assertTrue(Compare.compare(FILTERED, WITNESS_DIR + "/patternLayout.6"));
   }
 
 
   public void test7() throws Exception {
-    PropertyConfigurator.configure("input/patternLayout7.properties");
+    PropertyConfigurator.configure(INPUT_DIR + "/patternLayout7.properties");
     common();
     ControlFilter cf1 = new ControlFilter(new String[]{PAT3, EXCEPTION1, 
 						       EXCEPTION2, EXCEPTION3, EXCEPTION4, EXCEPTION5});
@@ -176,11 +180,11 @@ public class PatternLayoutTestCase extends TestCase {
         cf1, new LineNumberFilter(), new AbsoluteTimeFilter(),
         new SunReflectFilter(), new JunitTestRunnerFilter()
       });
-    assertTrue(Compare.compare(FILTERED, "witness/patternLayout.7"));
+    assertTrue(Compare.compare(FILTERED, WITNESS_DIR + "/patternLayout.7"));
   }
 
   public void test8() throws Exception {
-    PropertyConfigurator.configure("input/patternLayout8.properties");
+    PropertyConfigurator.configure(INPUT_DIR + "/patternLayout8.properties");
     common();
     ControlFilter cf1 = new ControlFilter(new String[]{PAT4, EXCEPTION1, 
 						       EXCEPTION2, EXCEPTION3, EXCEPTION4, EXCEPTION5});
@@ -190,11 +194,11 @@ public class PatternLayoutTestCase extends TestCase {
         cf1, new LineNumberFilter(), new RelativeTimeFilter(),
         new SunReflectFilter(), new JunitTestRunnerFilter()
       });
-    assertTrue(Compare.compare(FILTERED, "witness/patternLayout.8"));
+    assertTrue(Compare.compare(FILTERED, WITNESS_DIR + "/patternLayout.8"));
   }
 
   public void test9() throws Exception {
-    PropertyConfigurator.configure("input/patternLayout9.properties");
+    PropertyConfigurator.configure(INPUT_DIR + "/patternLayout9.properties");
     common();
     ControlFilter cf1 = new ControlFilter(new String[]{PAT5, EXCEPTION1, 
 						       EXCEPTION2, EXCEPTION3, EXCEPTION4, EXCEPTION5});
@@ -204,11 +208,11 @@ public class PatternLayoutTestCase extends TestCase {
         cf1, new LineNumberFilter(), new SunReflectFilter(),
         new JunitTestRunnerFilter()
       });
-    assertTrue(Compare.compare(FILTERED, "witness/patternLayout.9"));
+    assertTrue(Compare.compare(FILTERED, WITNESS_DIR + "/patternLayout.9"));
   }
 
   public void test10() throws Exception {
-    PropertyConfigurator.configure("input/patternLayout10.properties");
+    PropertyConfigurator.configure(INPUT_DIR + "/patternLayout10.properties");
     common();
     ControlFilter cf1 = new ControlFilter(new String[]{PAT6, EXCEPTION1, 
 						       EXCEPTION2, EXCEPTION3, EXCEPTION4, EXCEPTION5});
@@ -218,11 +222,11 @@ public class PatternLayoutTestCase extends TestCase {
         cf1, new LineNumberFilter(), new SunReflectFilter(),
         new JunitTestRunnerFilter()
       });
-    assertTrue(Compare.compare(FILTERED, "witness/patternLayout.10"));
+    assertTrue(Compare.compare(FILTERED, WITNESS_DIR + "/patternLayout.10"));
   }
 
   public void test11() throws Exception {
-    PropertyConfigurator.configure("input/patternLayout11.properties");
+    PropertyConfigurator.configure(INPUT_DIR + "/patternLayout11.properties");
     common();
     ControlFilter cf1 = new ControlFilter(new String[]{PAT11a, PAT11b, EXCEPTION1, 
 						       EXCEPTION2, EXCEPTION3, EXCEPTION4, EXCEPTION5});
@@ -232,11 +236,11 @@ public class PatternLayoutTestCase extends TestCase {
         cf1, new LineNumberFilter(), new SunReflectFilter(),
         new JunitTestRunnerFilter()
       });
-    assertTrue(Compare.compare(FILTERED, "witness/patternLayout.11"));
+    assertTrue(Compare.compare(FILTERED, WITNESS_DIR + "/patternLayout.11"));
   }
 
   public void test12() throws Exception {
-    PropertyConfigurator.configure("input/patternLayout12.properties");
+    PropertyConfigurator.configure(INPUT_DIR + "/patternLayout12.properties");
     common();
     ControlFilter cf1 = new ControlFilter(new String[]{PAT12, EXCEPTION1, 
 						       EXCEPTION2, EXCEPTION3, EXCEPTION4, EXCEPTION5});
@@ -246,11 +250,11 @@ public class PatternLayoutTestCase extends TestCase {
         cf1, new LineNumberFilter(), new SunReflectFilter(),
         new JunitTestRunnerFilter()
       });
-    assertTrue(Compare.compare(FILTERED, "witness/patternLayout.12"));
+    assertTrue(Compare.compare(FILTERED, WITNESS_DIR + "/patternLayout.12"));
   }
 
   public void test13() throws Exception {
-    PropertyConfigurator.configure("input/patternLayout13.properties");
+    PropertyConfigurator.configure(INPUT_DIR + "/patternLayout13.properties");
     common();
     ControlFilter cf1 = new ControlFilter(new String[]{PAT13, EXCEPTION1, 
 						       EXCEPTION2, EXCEPTION3, EXCEPTION4, EXCEPTION5});
@@ -260,11 +264,11 @@ public class PatternLayoutTestCase extends TestCase {
         cf1, new LineNumberFilter(), new SunReflectFilter(),
         new JunitTestRunnerFilter()
       });
-    assertTrue(Compare.compare(FILTERED, "witness/patternLayout.13"));
+    assertTrue(Compare.compare(FILTERED, WITNESS_DIR + "/patternLayout.13"));
   }
 
   public void test14() throws Exception {
-    PropertyConfigurator.configure("input/patternLayout14.properties");
+    PropertyConfigurator.configure(INPUT_DIR + "/patternLayout14.properties");
     common();
     ControlFilter cf1 = new ControlFilter(new String[]{PAT14, EXCEPTION1, 
 						       EXCEPTION2, EXCEPTION3, EXCEPTION4, EXCEPTION5});
@@ -274,29 +278,29 @@ public class PatternLayoutTestCase extends TestCase {
         cf1, new LineNumberFilter(), new SunReflectFilter(),
         new JunitTestRunnerFilter()
       });
-    assertTrue(Compare.compare(FILTERED, "witness/patternLayout.14"));
+    assertTrue(Compare.compare(FILTERED, WITNESS_DIR + "/patternLayout.14"));
   }
 
     public void testMDC1() throws Exception {
-      PropertyConfigurator.configure("input/patternLayout.mdc.1.properties");
+      PropertyConfigurator.configure(INPUT_DIR + "/patternLayout.mdc.1.properties");
       MDC.put("key1", "va11");
       MDC.put("key2", "va12");
       logger.debug("Hello World");
       MDC.remove("key1");
       MDC.remove("key2");
 
-      assertTrue(Compare.compare(TEMP, "witness/patternLayout.mdc.1"));
+      assertTrue(Compare.compare(TEMP, WITNESS_DIR + "/patternLayout.mdc.1"));
     }
 
     public void testMDCClear() throws Exception {
-      PropertyConfigurator.configure("input/patternLayout.mdc.1.properties");
+      PropertyConfigurator.configure(INPUT_DIR + "/patternLayout.mdc.1.properties");
       MDC.put("key1", "va11");
       MDC.put("key2", "va12");
       logger.debug("Hello World");
       MDC.clear();
       logger.debug("Hello World");
 
-      assertTrue(Compare.compare(TEMP, "witness/patternLayout.mdc.clear"));
+      assertTrue(Compare.compare(TEMP, WITNESS_DIR + "/patternLayout.mdc.clear"));
     }
 
 

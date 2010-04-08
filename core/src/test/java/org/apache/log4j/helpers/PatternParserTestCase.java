@@ -39,7 +39,7 @@ import org.apache.log4j.util.Compare;
 public class PatternParserTestCase extends TestCase {
   
   static String OUTPUT_FILE   = "output/PatternParser";
-  static String WITNESS_FILE  = "witness/PatternParser";
+  static String WITNESS_FILE  = "target/test-classes/witness/PatternParser";
 
   static String msgPattern = "%m%n";
   

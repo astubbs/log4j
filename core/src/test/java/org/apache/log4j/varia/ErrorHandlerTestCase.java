@@ -63,7 +63,7 @@ public class ErrorHandlerTestCase extends TestCase {
   }
 
   public void test1() throws Exception {
-    DOMConfigurator.configure("input/xml/fallback1.xml");
+    DOMConfigurator.configure("target/test-classes/input/xml/fallback1.xml");
     Appender primary = root.getAppender("PRIMARY");
     ErrorHandler eh = primary.getErrorHandler();
     assertNotNull(eh);
@@ -79,11 +79,11 @@ public class ErrorHandlerTestCase extends TestCase {
                             new SunReflectFilter()});
 
 
-    assertTrue(Compare.compare(FILTERED, "witness/fallback1"));
+    assertTrue(Compare.compare(FILTERED, "target/test-classes/witness/fallback1"));
   }
   
   public void test2() throws Exception {
-    PropertyConfigurator.configure("input/fallback1.properties");
+    PropertyConfigurator.configure("target/test-classes/input/fallback1.properties");
     Appender primary = root.getAppender("PRIMARY");
     ErrorHandler eh = primary.getErrorHandler();
     assertNotNull(eh);
@@ -99,7 +99,7 @@ public class ErrorHandlerTestCase extends TestCase {
                             new SunReflectFilter()});
 
 
-    assertTrue(Compare.compare(FILTERED, "witness/fallback1"));
+    assertTrue(Compare.compare(FILTERED, "target/test-classes/witness/fallback1"));
   }
 
   void common() {
