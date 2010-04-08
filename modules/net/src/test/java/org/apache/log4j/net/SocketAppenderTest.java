@@ -34,7 +34,7 @@ public class SocketAppenderTest extends TestCase {
     /* JUnit's setUp and tearDown */
 
     protected void setUp() {
-        DOMConfigurator.configure("input/xml/SocketAppenderTestConfig.xml");
+        DOMConfigurator.configure("target/test-classes/input/xml/SocketAppenderTestConfig.xml");
 
         logger = Logger.getLogger(SocketAppenderTest.class);
         secondary = (LastOnlyAppender) Logger.getLogger(
