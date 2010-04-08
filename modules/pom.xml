@@ -23,8 +23,16 @@
       <version>1.2.18-SNAPSHOT</version>
   </parent>
   <groupId>org.apache.log4j</groupId>
-  <artifactId>log4j-core</artifactId>
-  <name>Apache Log4j-Core</name>
-  <description>Apache Log4j core library.</description>
-  <packaging>bundle</packaging>
+  <artifactId>log4j-modules</artifactId>
+  <name>Apache Log4j-Modules POM</name>
+  <description>Apache Log4j Modules Container</description>
+  <packaging>pom</packaging>
+  <modules>
+    <!-- build not implemented <module>chainsaw</module> -->
+    <!-- build not implemented <module>contribs</module> -->
+    <!-- build not implemented <module>lf5</module> -->
+    <module>net</module>
+    <!-- build not implemented <module>nt</module> -->
+    <!-- build not implemented <module>performance</module> -->
+  </modules>
 </project>
