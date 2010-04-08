@@ -54,7 +54,7 @@ public class SMTPAppenderTest extends TestCase {
      * Tests that triggeringPolicy element will set evaluator.
      */
   public void testTrigger() {
-      DOMConfigurator.configure("input/xml/smtpAppender1.xml");
+      DOMConfigurator.configure("target/test-classes/input/xml/smtpAppender1.xml");
       SMTPAppender appender = (SMTPAppender) Logger.getRootLogger().getAppender("A1");
       TriggeringEventEvaluator evaluator = appender.getEvaluator();
       assertTrue(evaluator instanceof MockTriggeringEventEvaluator);

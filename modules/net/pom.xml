@@ -52,6 +52,7 @@
       <groupId>org.apache.log4j</groupId>
       <artifactId>log4j-core</artifactId>
       <version>${project.version}</version>
+      <scope>compile</scope>
     </dependency>
     <dependency>
       <groupId>javax.mail</groupId>
