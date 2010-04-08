@@ -98,7 +98,7 @@ public class AppenderTable extends JTable {
     // add one new logging event to the table.
     JButton button = new JButton("ADD");
     container.add(button);
-    button.addActionListener(new JTableAddAction(tableAppender));
+    button.addActionListener(new AppTableJTableAddAction(tableAppender));
 
     frame.setSize(new Dimension(500,300));
     frame.setVisible(true);
@@ -228,13 +228,13 @@ class AppenderTableModel extends AbstractTableModel {
    The JTableAddAction is called when the user clicks on the "ADD"
    button.
 */
-class JTableAddAction implements ActionListener {
+class AppTableJTableAddAction implements ActionListener {
     
   AppenderTable appenderTable;
   Logger dummy = Logger.getLogger("x");
   int counter = 0;
   public
-  JTableAddAction(AppenderTable appenderTable) {
+  AppTableJTableAddAction(AppenderTable appenderTable) {
     this.appenderTable = appenderTable;
   }
     

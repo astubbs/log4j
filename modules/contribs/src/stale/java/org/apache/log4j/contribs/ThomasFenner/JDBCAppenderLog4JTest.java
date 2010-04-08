@@ -1,3 +1,4 @@
+package org.apache.log4j.contribs.ThomasFenner;
 /*
  * Licensed to the Apache Software Foundation (ASF) under one or more
  * contributor license agreements.  See the NOTICE file distributed with
@@ -18,14 +19,13 @@
 // Here is a code example to configure the JDBCAppender with a configuration-file
 
 import org.apache.log4j.*;
-import java.sql.*;
-import java.lang.*;
-import java.util.*;
 
-public class Log4JTest
+import java.sql.*;
+
+public class JDBCAppenderLog4JTest
 {
    // Create a category instance for this class
-   static Category cat = Category.getInstance(Log4JTest.class.getName());
+   static Category cat = Category.getInstance(JDBCAppenderLog4JTest.class.getName());
 
    public static void main(String[] args)
    {

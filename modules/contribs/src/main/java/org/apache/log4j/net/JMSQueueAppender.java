@@ -15,6 +15,8 @@
  * limitations under the License.
  */
 
+package org.apache.log4j.net;
+
 import org.apache.log4j.AppenderSkeleton;
 import org.apache.log4j.spi.LoggingEvent;
 import org.apache.log4j.spi.ErrorHandler;
