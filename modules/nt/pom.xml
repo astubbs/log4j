@@ -1,3 +1,15 @@
+<!--
+Usage notes:
+
+To build NTEventLogAppender.dll using MinGW, place mingw\bin on path for Windows or install mingw
+package on other platforms.  Build will execute gcc and windres on Windows and
+i586-mingw32msvc-gcc and i586-mingw32msvc-windres on other platforms.
+
+To build NTEventLogAppender.dll using Microsoft tools, run the appropriate vcvars for the
+target platform and specify -Dntdll_target=msbuild on the mvn command line.
+
+-->        
+
 <plugin>
   <artifactId>maven-antrun-plugin</artifactId>
   <version>1.2</version>

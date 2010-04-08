@@ -15,26 +15,20 @@
  limitations under the License.
 
 -->
-<!--
-Usage notes:
-
-To build NTEventLogAppender.dll using MinGW, place mingw\bin on path for Windows or install mingw
-package on other platforms.  Build will execute gcc and windres on Windows and
-i586-mingw32msvc-gcc and i586-mingw32msvc-windres on other platforms.
-
-To build NTEventLogAppender.dll using Microsoft tools, run the appropriate vcvars for the
-target platform and specify -Dntdll_target=msbuild on the mvn command line.
-
--->        
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
   <modelVersion>4.0.0</modelVersion>
   <groupId>org.apache.log4j</groupId>
-  <artifactId>log4j-core</artifactId>
-  <packaging>bundle</packaging>
-  <name>Apache Log4j</name>
+  <artifactId>log4j-parent</artifactId>
+  <packaging>pom</packaging>
+  <name>Apache Log4j-Parent POM</name>
   <version>1.4.0-SNAPSHOT</version>
-  <description>Apache Log4j</description>
+  <description>Apache Log4j parent module container.</description>
   <url>http://logging.apache.org/log4j/</url>
+  <modules>
+    <module>core</module>
+    <module>modules</module>
+    <!--Build not implemented <module>examples</module>-->
+  </modules>
   <issueManagement>
     <system>Bugzilla</system>
     <url>http://issues.apache.org/bugzilla/</url>
@@ -145,7 +139,6 @@ target platform and specify -Dntdll_target=msbuild on the mvn command line.
       </plugin>
       <plugin>
         <artifactId>maven-javadoc-plugin</artifactId>
-        <version>2.6.1</version>
         <configuration>
           <docfilessubdirs>true</docfilessubdirs>
           <encoding>UTF-8</encoding>
@@ -159,7 +152,7 @@ target platform and specify -Dntdll_target=msbuild on the mvn command line.
           </execution>
           <execution>
             <id>site</id>
-	    <phase>pre-site</phase>
+            <phase>pre-site</phase>
             <goals>
               <goal>javadoc</goal>
             </goals>
