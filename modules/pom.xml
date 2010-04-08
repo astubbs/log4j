@@ -30,7 +30,7 @@
   
   <modules>
     <module>chainsaw</module>
-    <!-- build not implemented <module>contribs</module> Compile errors -->
+    <module>contribs</module>
     <module>lf5</module>
     <module>net</module>
     <!-- build not implemented <module>nt</module> -->
