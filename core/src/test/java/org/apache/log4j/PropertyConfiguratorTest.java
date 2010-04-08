@@ -40,6 +40,11 @@ import org.apache.log4j.varia.LevelRangeFilter;
  *
  */
 public class PropertyConfiguratorTest extends TestCase {
+
+    static final String FILE_PREFIX = "target/test-classes";
+    static final String INPUT_DIR = FILE_PREFIX + "/input";
+    static final String WITNESS_DIR = FILE_PREFIX + "/witness";
+
     public PropertyConfiguratorTest(final String testName) {
         super(testName);
     }
@@ -311,12 +316,20 @@ public class PropertyConfiguratorTest extends TestCase {
      * Tests processing of nested objects, see bug 36384.
      */
     public void testNested() {
-        try {
-            PropertyConfigurator.configure("input/filter1.properties");
-            this.validateNested();
-        } finally {
-            LogManager.resetConfiguration();
-        }
+        PropertyConfigurator.configure(INPUT_DIR + "/filter1.properties");
+        RollingFileAppender rfa = (RollingFileAppender)
+                Logger.getLogger("org.apache.log4j.PropertyConfiguratorTest")
+                   .getAppender("ROLLING");
+        FixedWindowRollingPolicy rollingPolicy = (FixedWindowRollingPolicy) rfa.getRollingPolicy();
+        assertEquals("filterBase-test1.log", rollingPolicy.getActiveFileName());
+        assertEquals("filterBased-test1.%i", rollingPolicy.getFileNamePattern());
+        assertEquals(0, rollingPolicy.getMinIndex());
+        assertTrue(rollingPolicy.isActivated());
+        FilterBasedTriggeringPolicy triggeringPolicy =
+                (FilterBasedTriggeringPolicy) rfa.getTriggeringPolicy();
+        LevelRangeFilter filter = (LevelRangeFilter) triggeringPolicy.getFilter();
+        assertTrue(Level.INFO.equals(filter.getLevelMin()));
+        LogManager.resetConfiguration();
     }
 
 

@@ -25,6 +25,10 @@ import org.apache.log4j.util.Compare;
 
 public class CustomLevelTestCase extends TestCase {
 
+  static final String FILE_PREFIX = "target/test-classes";
+  static final String INPUT_DIR = FILE_PREFIX + "/input";
+  static final String WITNESS_DIR = FILE_PREFIX + "/witness";
+  
   static String TEMP = "output/temp";
 
   Logger root; 
@@ -44,27 +48,27 @@ public class CustomLevelTestCase extends TestCase {
   }
 
   public void test1() throws Exception {
-    DOMConfigurator.configure("input/xml/customLevel1.xml");
+    DOMConfigurator.configure(INPUT_DIR + "/xml/customLevel1.xml");
     common();
-    assertTrue(Compare.compare(TEMP, "witness/customLevel.1"));
+    assertTrue(Compare.compare(TEMP, WITNESS_DIR + "/customLevel.1"));
   }
 
   public void test2() throws Exception {
-    DOMConfigurator.configure("input/xml/customLevel2.xml");
+    DOMConfigurator.configure(INPUT_DIR + "/xml/customLevel2.xml");
     common();
-    assertTrue(Compare.compare(TEMP, "witness/customLevel.2"));
+    assertTrue(Compare.compare(TEMP, WITNESS_DIR + "/customLevel.2"));
   }
 
   public void test3() throws Exception {
-    DOMConfigurator.configure("input/xml/customLevel3.xml");
+    DOMConfigurator.configure(INPUT_DIR + "/xml/customLevel3.xml");
     common();
-    assertTrue(Compare.compare(TEMP, "witness/customLevel.3"));
+    assertTrue(Compare.compare(TEMP, WITNESS_DIR + "/customLevel.3"));
   }
 
   public void test4() throws Exception {
-    DOMConfigurator.configure("input/xml/customLevel4.xml");
+    DOMConfigurator.configure(INPUT_DIR + "/xml/customLevel4.xml");
     common();
-    assertTrue(Compare.compare(TEMP, "witness/customLevel.4"));
+    assertTrue(Compare.compare(TEMP, WITNESS_DIR + "/customLevel.4"));
   }
 
 

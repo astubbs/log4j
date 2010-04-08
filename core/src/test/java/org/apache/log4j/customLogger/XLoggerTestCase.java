@@ -46,7 +46,7 @@ public class XLoggerTestCase extends TestCase {
   public void test2()  throws Exception  { common(2); }
 
   void common(int number) throws Exception {
-    DOMConfigurator.configure("input/xml/customLogger"+number+".xml");
+    DOMConfigurator.configure("target/test-classes/input/xml/customLogger"+number+".xml");
 
     int i = -1;
 
@@ -64,7 +64,7 @@ public class XLoggerTestCase extends TestCase {
         new LineNumberFilter(), new SunReflectFilter(),
         new JunitTestRunnerFilter()
       });
-    assertTrue(Compare.compare(FILTERED, "witness/customLogger."+number));
+    assertTrue(Compare.compare(FILTERED, "target/test-classes/witness/customLogger."+number));
 
   }
 

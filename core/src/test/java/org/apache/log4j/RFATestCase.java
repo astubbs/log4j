@@ -30,6 +30,10 @@ import java.io.IOException;
  */
 public class RFATestCase extends TestCase {
 
+  static final String FILE_PREFIX = "target/test-classes";
+  static final String INPUT_DIR = FILE_PREFIX + "/input";
+  static final String WITNESS_DIR = FILE_PREFIX + "/witness";
+  
   public RFATestCase(String name) {
     super(name);
   }
@@ -43,7 +47,7 @@ public class RFATestCase extends TestCase {
      */
     public void test1() throws Exception {
      Logger logger = Logger.getLogger(RFATestCase.class);
-      PropertyConfigurator.configure("input/RFA1.properties");
+      PropertyConfigurator.configure(INPUT_DIR + "/RFA1.properties");
 
       // Write exactly 10 bytes with each log
       for (int i = 0; i < 25; i++) {
